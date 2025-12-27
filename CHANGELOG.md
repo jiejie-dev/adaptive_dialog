@@ -1,3 +1,11 @@
+## 1.10.0
+
+ - **FIX**: pop with dialog context instead.
+ - **FEAT**: Add option to set toggleable for showConfirmDialog.
+ - **FEAT**: expose route settings on all apis.
+ - **FEAT**: minLInes and maxLines for DialogTextField.
+ - **FEAT**: More configs for DialogTextField.
+
 ## 2.6.0
 
 - fullyCapitalizedForMaterial is deprecated and change default to false
