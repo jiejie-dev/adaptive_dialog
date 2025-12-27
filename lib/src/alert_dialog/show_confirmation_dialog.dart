@@ -38,10 +38,8 @@ Future<T?> showConfirmationDialog<T>({
   RouteSettings? routeSettings,
   bool toggleable = true,
 }) {
-  void pop({required BuildContext context, required T? key}) => Navigator.of(
-    context,
-    rootNavigator: useRootNavigator,
-  ).pop(key);
+  void pop({required BuildContext context, required T? key}) =>
+      Navigator.of(context, rootNavigator: useRootNavigator).pop(key);
 
   final theme = Theme.of(context);
   final adaptiveStyle = style ?? AdaptiveDialog.instance.defaultStyle;
@@ -151,24 +149,15 @@ class _ConfirmationMaterialDialogState<T>
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 24,
-                vertical: 16,
-              ),
+              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    widget.title,
-                    style: theme.textTheme.titleLarge,
-                  ),
+                  Text(widget.title, style: theme.textTheme.titleLarge),
                   if (message != null)
                     Padding(
                       padding: const EdgeInsets.only(top: 4),
-                      child: Text(
-                        message,
-                        style: theme.textTheme.bodySmall,
-                      ),
+                      child: Text(message, style: theme.textTheme.bodySmall),
                     ),
                 ],
               ),
@@ -177,32 +166,27 @@ class _ConfirmationMaterialDialogState<T>
             Flexible(
               child: SizedBox(
                 height: widget.contentMaxHeight,
-                child: RadioGroup(
-                  groupValue: _selectedKey,
-                  onChanged: (value) {
-                    setState(() {
-                      _selectedKey = value;
-                    });
-                  },
-                  child: ListView(
-                    // This switches physics automatically, so if there is
-                    // enough height,
-                    // `NeverScrollableScrollPhysics` will be set.
-                    controller: _scrollController,
-                    shrinkWrap: widget.shrinkWrap,
-                    children: widget.actions
-                        .map(
-                          (action) => RadioListTile<T>(
-                            title: Text(
-                              action.label,
-                              style: action.textStyle,
-                            ),
-                            value: action.key,
-                            toggleable: widget.toggleable,
-                          ),
-                        )
-                        .toList(),
-                  ),
+                child: ListView(
+                  // This switches physics automatically, so if there is
+                  // enough height,
+                  // `NeverScrollableScrollPhysics` will be set.
+                  controller: _scrollController,
+                  shrinkWrap: widget.shrinkWrap,
+                  children: widget.actions
+                      .map(
+                        (action) => RadioListTile<T>(
+                          title: Text(action.label, style: action.textStyle),
+                          value: action.key,
+                          toggleable: widget.toggleable,
+                          groupValue: _selectedKey,
+                          onChanged: (T? value) {
+                            setState(() {
+                              _selectedKey = value;
+                            });
+                          },
+                        ),
+                      )
+                      .toList(),
                 ),
               ),
             ),
