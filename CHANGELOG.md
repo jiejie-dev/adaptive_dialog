@@ -1,3 +1,7 @@
+## 1.10.1
+
+ - **FIX**: Platform compatibility issues with the official Flutter.
+
 ## 1.10.0
 
  - **FIX**: pop with dialog context instead.
