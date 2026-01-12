@@ -1,7 +1,7 @@
 name: adaptive_dialog
 resolution: workspace
 description: Show alert dialog or modal action sheet adaptively according to platform.
-version: 1.10.1
+version: 1.10.2
 repository: https://github.com/mono0926/adaptive_dialog
 funding:
   - https://github.com/sponsors/mono0926
