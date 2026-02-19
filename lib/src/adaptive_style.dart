@@ -36,8 +36,9 @@ enum AdaptiveStyle {
           case TargetPlatform.android:
           case TargetPlatform.fuchsia:
           case TargetPlatform.linux:
-          case TargetPlatform.ohos:
           case TargetPlatform.windows:
+            return AdaptiveStyle.material;
+          default:
             return AdaptiveStyle.material;
         }
     }
